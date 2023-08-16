@@ -1,8 +1,8 @@
 package homework.adventuregame.player;
 
-import homework.adventuregame.locations.Location;
-import homework.adventuregame.locations.SafeHouse;
-import homework.adventuregame.locations.ToolStore;
+
+
+import homework.adventuregame.inventory.Inventory;
 
 import java.util.Scanner;
 
@@ -12,14 +12,16 @@ public class Player {
     private int money;
     private String name;
     private String charName;
+    private Inventory inventory;
     private Scanner input =new Scanner(System.in);
 
     public Player(String name) {
         this.name = name;
+        this.inventory=new Inventory();
     }
 
     public int getDamage() {
-        return damage;
+        return damage+ this.getInventory().getWeapon().getDamage();
     }
 
     public void setDamage(int damage) {
@@ -58,6 +60,14 @@ public class Player {
         this.charName = charName;
     }
 
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
     public void selectChar(){
         GameChar[] charlist= {new Samurai(),new Archer(),new Knight()};
         System.out.println("Karaktlerler ");
@@ -66,7 +76,7 @@ public class Player {
                     "\t Karakter: "+gamechar.getName() +
                     "\t Hasar: "+gamechar.getDamage() +
                     "\t Sağlık: " +gamechar.getHealth() +
-                    "\t Para: "+getMoney());
+                    "\t Para: "+gamechar.getMoney());
         }
         System.out.print("Lütfen bir karakter seçiniz : ");
         int selectchar= input.nextInt();
@@ -79,10 +89,7 @@ public class Player {
         }else {
             initPlayer(new Samurai());
         }
-        System.out.println(" Karakter: "+this.getCharName()+
-                ", Hasar: "+this.getDamage()+
-                ", Sağlık: " +this.getHealth()+
-                ", Para: "+this.getMoney());
+
 
     }
 
@@ -91,6 +98,12 @@ public class Player {
         this.setHealth(gameChar.getHealth());
         this.setMoney(gameChar.getMoney());
         this.setCharName(gameChar.getName());
+    }
+    public void printInfo(){
+        System.out.println("Silahınız: "+this.getInventory().getWeapon().getName()+
+                ", Hasarınız : "+this.getDamage()+
+                ", Sağlık: " +this.getHealth()+
+                ", Para: "+this.getMoney());
     }
 
 }

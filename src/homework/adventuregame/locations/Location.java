@@ -2,11 +2,14 @@ package homework.adventuregame.locations;
 
 import homework.adventuregame.player.Player;
 
+import java.util.Scanner;
+
 public abstract class Location {
     private int id;
     private Player player;
     private String name;
     private String locDescr;
+    public static Scanner input =new Scanner(System.in);
     public Location(Player player) {
         this.player = player;
 
