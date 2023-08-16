@@ -43,11 +43,11 @@ Collecting all items at battle locations, fighting various obstacles while doing
 
 ### ARMORS
 
-| Armor  | ID  | Damage | Money |
-|:-------|:---:|:------:|:-----:|
-| Light  |  1  |   1    |  15   |
-| Medium |  2  |   3    |  25   |
-| Heavy  |  3  |   5    |  40   |
+| Armor  | ID  | Block | Money |
+|:-------|:---:|:-----:|:-----:|
+| Light  |  1  |   1   |  15   |
+| Medium |  2  |   3   |  25   |
+| Heavy  |  3  |   5   |  40   |
 
 
 ## **LOCATIONS**

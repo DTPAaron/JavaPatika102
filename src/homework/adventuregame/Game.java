@@ -27,14 +27,23 @@ public class Game {
             for (Location loc:locList) {
                 System.out.println("Lokasyon id: "+loc.getId()+ "\t Lokasyon Adı : "+ loc.getName()+ "\tLokasyon Açıklama: "+loc.getLocDescr() );
             }
+            System.out.println("0-Çıkış Yap");
             System.out.print("Lütfen bir bölge seçiniz : ");
             int selected=input.nextInt();
-            if (selected==1){
+            if (selected==0){
+                location=null;
+            }
+            else if (selected==1){
                 location = new SafeHouse(player);
             }else if (selected==2){
                 location = new ToolStore(player);
-            }else{
+            }
+            else{
                 location = new SafeHouse(player);
+            }
+            if (location==null){
+                System.out.println("Macera adasından ayrılıyorsunuz!!!");
+                break;
             }
             if (!location.onLocation()){
                 System.out.println("GAME OVER!");

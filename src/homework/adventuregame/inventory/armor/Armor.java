@@ -1,6 +1,6 @@
 package homework.adventuregame.inventory.armor;
 
-public abstract class Armor {
+public class Armor {
     private int id;
     private int block;
     private double money;
