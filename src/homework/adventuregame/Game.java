@@ -1,8 +1,6 @@
 package homework.adventuregame;
 
-import homework.adventuregame.locations.Location;
-import homework.adventuregame.locations.SafeHouse;
-import homework.adventuregame.locations.ToolStore;
+import homework.adventuregame.locations.*;
 import homework.adventuregame.player.Player;
 
 
@@ -23,7 +21,7 @@ public class Game {
             System.out.println();
             System.out.println("--------Bölgeler-----------");
             System.out.println();
-            Location[] locList={new SafeHouse(player),new ToolStore(player)};
+            Location[] locList={new SafeHouse(player),new ToolStore(player),new Cave(player),new Forest(player),new River(player)};
             for (Location loc:locList) {
                 System.out.println("Lokasyon id: "+loc.getId()+ "\t Lokasyon Adı : "+ loc.getName()+ "\tLokasyon Açıklama: "+loc.getLocDescr() );
             }
@@ -37,10 +35,17 @@ public class Game {
                 location = new SafeHouse(player);
             }else if (selected==2){
                 location = new ToolStore(player);
+            }else if (selected==3){
+                location = new Cave(player);
+            }else if (selected==4){
+                location = new Forest(player);
+            }else if (selected==5){
+                location = new River(player);
             }
             else{
-                location = new SafeHouse(player);
+                System.out.println("Lütfen geçerli bir bölge giriniz");
             }
+
             if (location==null){
                 System.out.println("Macera adasından ayrılıyorsunuz!!!");
                 break;
