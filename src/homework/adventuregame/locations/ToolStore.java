@@ -11,14 +11,10 @@ import homework.adventuregame.inventory.weapon.Weapon;
 import homework.adventuregame.player.Player;
 
 public class ToolStore extends NormalLoc{
-    private String name;
-    private int id;
-    private String locDescr;
+
     public ToolStore(Player player) {
-        super(player);
-        this.name="Mağaza";
-        this.id=2;
-        this.locDescr="Silah veya Zırh alabilirsiniz.";
+        super(2,player,"Mağaza","Silah veya Zırh alabilirsiniz.");
+
     }
 
     @Override
@@ -28,11 +24,11 @@ public class ToolStore extends NormalLoc{
         while (showMenu){
             System.out.println("1-Silahlar");
             System.out.println("2-Zırhlar");
-            System.out.println("3- Çıkış Yap");
+            System.out.println("3-Çıkış Yap");
             System.out.print("Seçiminiz: ");
             int select=input.nextInt();
             while (select<1||select>3){
-                System.out.println("Geçersiz bir değer girdiniz , Lütfen tekrar giriniz");
+                System.out.print("Geçersiz bir değer girdiniz , Lütfen tekrar giriniz : ");
                 select=input.nextInt();
             }
             if (select==1){
@@ -65,7 +61,7 @@ public class ToolStore extends NormalLoc{
         System.out.print("Bir silah seçiniz : ");
         int select=input.nextInt();
         while (select<0||select> weaponList.length){
-            System.out.println("Geçersiz bir değer girdiniz , Lütfen tekrar giriniz");
+            System.out.print("Geçersiz bir değer girdiniz , Lütfen tekrar giriniz : ");
             select=input.nextInt();
         }
         if(select!=0){
@@ -102,7 +98,7 @@ public class ToolStore extends NormalLoc{
         System.out.print("Bir kalkan seçiniz : ");
         int select=input.nextInt();
         while (select<0||select> armorList.length){
-            System.out.println("Geçersiz bir değer girdiniz , Lütfen tekrar giriniz");
+            System.out.print("Geçersiz bir değer girdiniz , Lütfen tekrar giriniz: ");
             select=input.nextInt();
         }
         if(select!=0){
@@ -126,31 +122,5 @@ public class ToolStore extends NormalLoc{
 
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
 
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getLocDescr() {
-        return locDescr;
-    }
-
-    public void setLocDescr(String locDescr) {
-        this.locDescr = locDescr;
-    }
 }

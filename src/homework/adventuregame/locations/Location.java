@@ -10,10 +10,14 @@ public abstract class Location {
     private String name;
     private String locDescr;
     public static Scanner input =new Scanner(System.in);
-    public Location(Player player) {
-        this.player = player;
 
+    public Location(int id, Player player, String name, String locDescr) {
+        this.id = id;
+        this.player = player;
+        this.name = name;
+        this.locDescr = locDescr;
     }
+
     public abstract boolean onLocation();
 
     public Player getPlayer() {

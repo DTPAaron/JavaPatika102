@@ -26,7 +26,7 @@ Collecting all items at battle locations, fighting various obstacles while doing
 
 ### OBSTACLES
 
-| Obstacle | ID  | Damage | Health |    Money    |
+| Obstacle | ID  | Damage | Health |    Price    |
 |:---------|:---:|:------:|:------:|:-----------:|
 | Zombie   |  1  |   3    |   10   |      4      |
 | Vampire  |  2  |   4    |   14   |      7      |
@@ -70,7 +70,7 @@ Collecting all items at battle locations, fighting various obstacles while doing
 
 ### River
 
-- Obstacle : Bear (1-3)
+- Obstacle : Bear (1-2)
 - Feature : War + Loot
 - Item : Water
 

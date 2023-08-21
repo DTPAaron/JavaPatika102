@@ -3,8 +3,8 @@ package homework.adventuregame.locations;
 import homework.adventuregame.player.Player;
 
 public abstract class NormalLoc extends Location{
-    public NormalLoc(Player player) {
-        super(player);
+    public NormalLoc(int id, Player player, String name, String locDescr) {
+        super(id, player, name, locDescr);
     }
 
     @Override

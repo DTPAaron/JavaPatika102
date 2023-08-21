@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Player {
     private int damage;
     private int health;
+    private int defHealth;
     private int money;
     private String name;
     private String charName;
@@ -19,9 +20,12 @@ public class Player {
         this.name = name;
         this.inventory=new Inventory();
     }
+    public int  getTotalDamage(){
+        return damage+ this.getInventory().getWeapon().getDamage();
+    }
 
     public int getDamage() {
-        return damage+ this.getInventory().getWeapon().getDamage();
+        return damage;
     }
 
     public void setDamage(int damage) {
@@ -33,6 +37,9 @@ public class Player {
     }
 
     public void setHealth(int health) {
+        if(health<0){
+            health=0;
+        }
         this.health = health;
     }
 
@@ -68,9 +75,19 @@ public class Player {
         this.inventory = inventory;
     }
 
+    public int getDefHealth() {
+        return defHealth;
+    }
+
+    public void setDefHealth(int defHealth) {
+        this.defHealth = defHealth;
+    }
+
     public void selectChar(){
         GameChar[] charlist= {new Samurai(),new Archer(),new Knight()};
+        System.out.println("------------------------------------------------------");
         System.out.println("Karaktlerler ");
+        System.out.println("------------------------------------------------------");
         for (GameChar gamechar :charlist) {
             System.out.println("Id: "+gamechar.getId()+
                     "\t Karakter: "+gamechar.getName() +
@@ -78,14 +95,15 @@ public class Player {
                     "\t Sağlık: " +gamechar.getHealth() +
                     "\t Para: "+gamechar.getMoney());
         }
+        System.out.println("------------------------------------------------------");
         System.out.print("Lütfen bir karakter seçiniz : ");
         int selectchar= input.nextInt();
         if (selectchar==1){
             initPlayer(new Samurai());
         }else if (selectchar==2){
-            initPlayer(new Knight());
-        }else if (selectchar==3){
             initPlayer(new Archer());
+        }else if (selectchar==3){
+            initPlayer(new Knight());
         }else {
             initPlayer(new Samurai());
         }
@@ -98,12 +116,13 @@ public class Player {
         this.setHealth(gameChar.getHealth());
         this.setMoney(gameChar.getMoney());
         this.setCharName(gameChar.getName());
+        this.setDefHealth(gameChar.getHealth());
     }
     public void printInfo(){
         System.out.println("Silahınız: "+this.getInventory().getWeapon().getName()+
                 ", Zırhınız : "+ this.getInventory().getArmor().getName()+
                 ", Bloklama : "+ this.getInventory().getArmor().getBlock()+
-                ", Hasarınız : "+this.getDamage()+
+                ", Hasarınız : "+this.getTotalDamage()+
                 ", Sağlık: " +this.getHealth()+
                 ", Para: "+this.getMoney());
     }
